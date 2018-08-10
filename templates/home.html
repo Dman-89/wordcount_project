@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count</title>
+</head>
+<body>
+    <h1>WORD COUNT</h1>
+
+    <!--form is something where users can enter info in textfields, textareas (bigger textfields),
+    we can have there radiobuttons, checkboxes etc
+    so it CONTAINS elements that user interact with-->
+
+    <!--here we need to specify where we need to go when someone enters and submits information. So we add "action" in <form>
+    and we could simply write action="count" and it would work, but proper way is to add listed below in action="{% url 'count' %}"
+    we reference url 'count' and it addresses user to urls.py path('count/', views.count, name='count') and from there it goes to count.html using views.count function-->
+    <form action="{% url 'count' %}">
+        <!--textarea is a big rectangle inside page, it has parameters like cols and rows which stand for size axes of box-->
+        <textarea cols="40" rows="5" name="fulltext"></textarea>
+        <!--because we gave to textarea name="fulltext" we get user input from textarea as a parameter in count page address:
+        http://localhost:8000/count/?fulltext=whatever+text+user+types-->
+
+        <!--adding br tag to make input button situate on next line after textarea-->
+        <br />
+        <!--that's the button , also here shortcut of closing tag was used - "/>" -->
+        <input type="submit" value="Count!"/>
+        <!--TODO figure out diff between submit and button-->
+    </form>
+
+    <br />
+
+    <button onclick="location.href={% url 'about'%}">about</button> <!--onclick="location.href='about'"-->
+    <!--<form action="{% url 'about' %}">
+        <input type="submit" value="About"/>
+    </form>-->
+
+<!--{{ hithere }}  can't have whitespaces in dict keys, so hi there is not allowed-->
+</body>
+</html>

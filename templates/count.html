@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count</title>
+</head>
+<body>
+    <h1>There are {{ count }} words in your text</h1> <!--here we extract len(wordlist) from dict in views.count function-->
+
+    <a href="{% url 'home' %}">Start again</a>
+
+    <h1>Your text:</h1>
+    {{ fulltext }} <!--here we extract text that's been typed by user-->
+
+    <h1>Word count:</h1>
+
+    <!--here we'll have a for loop that prints words and count of word appearance in text-->
+    {% for word, counttotal in sortedwords %}
+    {{ word }} - {{ counttotal }}<!--actual prints go here; note that we named it counttotal to avoid conflict with count above-->
+    <br /> <!--line break, if absent, then all words will be in one line one after another-->
+    {% endfor %}
+</body>
+</html>
